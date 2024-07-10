@@ -1,0 +1,160 @@
+
+body{
+    overflow: auto;
+}
+
+a{
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+
+table {
+    --names_container_max_height: 500px;
+    --height: 50px;
+
+    display: table;
+    border-collapse: separate;
+
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+
+    border: 2px solid gray;
+
+    padding: 10px;
+
+    padding-right: 600px;
+    padding-bottom: var(--names_container_max_height);
+
+    width: fit-content;
+    min-width: 100vw;
+    height:fit-content;
+    min-height:100vh;
+
+    border-radius: 10px;
+}
+
+table th, table td {
+    --width: fit-content;
+
+    --min-width: 141px;
+    --font-size: 27px;
+
+    width: var(--width) !important;
+    min-width: var(--min-width) !important;
+    max-width: var(--width) !important;
+
+    height: fit-content !important;
+    min-height: var(--height) !important;
+    max-height: var(--height) !important;
+
+    font-weight: 800;
+    font-family: Arial;
+
+    border: 1px solid black;
+}
+
+tr{
+    height: fit-content !important;
+    min-height: var(--height) !important;
+    max-height: var(--height) !important;
+}
+
+table :is(th, td){
+    font-size: var(--font-size);
+    text-align: center; 
+}
+
+
+.sequence_names_container{
+    position: absolute;
+    top:0px;
+    left:0px;
+
+    width: 500px;
+    height:fit-content;
+    min-height: var(--height);
+    max-height: var(--names_container_max_height);
+
+    display: none;
+
+    padding: 8px;
+
+    border-radius: 10px;
+
+    overflow-y: auto;
+
+    text-align: start;
+
+
+    z-index: 10;
+
+    background: cyan;
+}
+
+
+.has_sequence_el{
+    color: white;
+    background: orange;
+}
+
+
+.has_sequence_el::before{
+    --size: 20px;
+
+    content: "";
+    position: relative;
+    right:0px;
+    
+    display: block;
+
+    width: var(--size);
+    min-width: var(--size);
+    max-width: var(--size);
+    aspect-ratio: 1/1;
+
+    border-radius: 50px;
+}
+.has_sequence_el.has_sequence_on_top.has_sequence_on_left.has_sequence_on_diagonal::before{
+    background: linear-gradient(250deg, red, blue, #8d00ff);
+}
+
+
+.has_sequence_el.has_sequence_on_top.has_sequence_on_left::before{
+    background: linear-gradient(250deg, red, blue);
+}
+
+.has_sequence_el.has_sequence_on_top.has_sequence_on_diagonal::before{
+    background: linear-gradient(250deg, red, #8d00ff);
+}
+
+.has_sequence_el.has_sequence_on_left.has_sequence_on_diagonal::before{
+    background: linear-gradient(250deg, blue, #8d00ff);
+}
+
+
+.has_sequence_el.highlight_main_sequence_el .sequence_names_container{
+    display: block;
+}
+
+.highlight_sequence{
+    color: white;
+    background: green;
+}
+
+.highlight_sequence.top{
+    background: red !important;
+}
+
+.highlight_sequence.left{
+    background: blue !important;
+}
+
+.highlight_sequence.diagonal{
+    background: #8d00ff !important;
+}
